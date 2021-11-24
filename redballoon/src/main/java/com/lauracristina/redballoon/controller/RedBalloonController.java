@@ -11,25 +11,23 @@ public class RedBalloonController {
         return "telaInicial";
     }
 
-    @RequestMapping("/avisos")
-    public String exibeAvisos() {
-        return "telaAvisos";
-    }
-
-    @RequestMapping("/responsavel")
+    @RequestMapping("/dadosResponsavel")
     public String exibeResponsavel() {
         return "dadosResponsavel";
     }
 
-    @RequestMapping("/horarios")
-    public String exibeHorarios() {
-        return "horarios";
+    @RequestMapping("/dados")
+    public String exibeAlunos() {
+        return "dados";
     }
 
-    @RequestMapping("/financeiro")
-    public String exibeFinanceiro() {
-        return "financeiro";
+    @RequestMapping("/secretaria")
+    public String exibeSecretaria() {
+        return "secretaria";
     }
-
+    @RequestMapping("/lista")
+    public String exibeDados() {
+        return "listar";
+    }
 
 }
