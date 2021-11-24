@@ -10,41 +10,31 @@
 <body>
      <!-- NAV COM IMAGEM -->
      <header>
-        <nav class="navbar navbar-expand-lg navbar-light b-light border-bottom-3 border border-blue">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="https://redballoon.com.br"><img src="/redballoon/src/main/resources/static/img/logo.png"></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <header class="p-3 mb-3 border-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <img src="" alt="logo">
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 link-secondary">PROGRAMAS</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">EVENTOS</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">UNIDADES</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">CONTATO</a></li>
                 </ul>
-                <form class="d-flex">
-                  <button class="btn btn-outline-success" type="submit">Logout</button>
-                </form>
-              </div>
+
+
             </div>
-          </nav>
+        </div>
     </header>
 
-    <main >
+    <main class="p-4 m-4" >
         
         <div>
             <h1 class="p-4 text-center"> Dados Pessoais - Aluno</h1>
         </div>
 
         <div class="container d-flex m-4 p-7 ">
-            <!-- Menu Lateral -->
-            <div class="col-2">
-                <div class=" p-2 btn-group-vertical d-flex text-light">
-                  <button type="button" class="btn btn-primary"><a class="text-light" href="dadosPessoais.html">DADOS PESSOAIS</a></button>
-                  <button type="button" class="btn btn-primary"><a class="text-light" href="alunos.html">ALUNOS</a></button>
-                  <button type="button" class="btn btn-primary"><a class="text-light" href="alterarSenha.html">ALTERAR SENHA</a></button>
-                  <button type="button" class="btn btn-primary"><a class="text-light" href="boletim.html">BOLETIM ESCOLAR</a></button>
-                  <button type="button" class="btn btn-primary"><a class="text-light" href="horarios.html">HORÁRIOS</a></button>
-                  <button type="button" class="btn btn-primary"><a class="text-light" href="financeiro.html">FINANCEIRO</a></button>
-                </div>   
-            </div>
+            
             <!-- Dados Pessoais -->
         <section>
             <div>
@@ -163,7 +153,11 @@
                     Please provide a valid zip.
                   </div>
                 </div>
-                <input type="submit">
+                <div class="col-12">
+                  <button class="btn btn-primary" type="submit"><a class="text-light"
+                          href="dadosAluno.html"> Incluir Ficha Médica</a></button>
+              </div>
+
               </form>
            </div>
 <!--           <h3 class="p-4 text-center">Dados Médicos</h3>-->
