@@ -36,4 +36,9 @@ public class RedBalloonController {
         return "alunos/listar";
     }
 
+    @RequestMapping("/dadosAluno")
+    public String exibeDadosAluno() {
+        return "alunos/dadosAluno";
+    }
+
 }
