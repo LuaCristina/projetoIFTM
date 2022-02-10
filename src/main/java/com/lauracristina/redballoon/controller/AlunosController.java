@@ -23,14 +23,14 @@ public class AlunosController {
         model.addAttribute("alunos", list);
         return "alunos/listar";
     }
-/*
+
     @GetMapping("/alunos/dados")
     public String exibeDados(@RequestParam(name = "id", required = false) Integer cod, Model modelo) {
         Aluno aluno = repository.buscaPorId(cod);
         modelo.addAttribute("aluno", repository.buscaPorId(cod));
         return "alunos/dados";
     }
-*/
+
 
     @PostMapping(value = "/alunos/dados")
     public String processaForm(Aluno aluno) {
