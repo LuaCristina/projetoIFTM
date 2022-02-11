@@ -11,14 +11,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema RedBallon
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `RedBallon` ;
-USE `RedBallon` ;
-
+CREATE SCHEMA IF NOT EXISTS `autentica-autoriza` ;
+USE `autentica-autoriza` ;
 
 -- -----------------------------------------------------
 -- Table `RedBallon`.`responsavel`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `RedBallon`.`responsavel` (
+CREATE TABLE IF NOT EXISTS `autentica-autoriza`.`responsavel` (
   `id_Resp` INT NOT NULL,
   `cpf` VARCHAR(45) NULL,
   `data_nasc` DATE NULL,
@@ -32,7 +31,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `RedBallon`.`alunos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `RedBallon`.`alunos` (
+CREATE TABLE IF NOT EXISTS `autentica-autoriza`.`alunos` (
   `idAlunos` INT NOT NULL,
   `nome` VARCHAR(45) NULL,
   `cpf` VARCHAR(45) NULL,
@@ -44,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `RedBallon`.`alunos` (
   INDEX `fk_Resp_idx` (`id_Resp` ASC) VISIBLE,
   CONSTRAINT `fk_Resp`
     FOREIGN KEY (`id_Resp`)
-    REFERENCES `RedBallon`.`responsavel` (`id_Resp`)
+    REFERENCES `autentica-autoriza`.`responsavel` (`id_Resp`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -53,7 +52,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `RedBallon`.`dados_med`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `RedBallon`.`dados_med` (
+CREATE TABLE IF NOT EXISTS `autentica-autoriza`.`dados_med` (
   `id_Hosp` INT NOT NULL,
   `medico` VARCHAR(45) NULL,
   `hospital` VARCHAR(45) NULL,
@@ -63,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `RedBallon`.`dados_med` (
   INDEX `fk_dados_med_1_idx` (`idAlunos` ASC) VISIBLE,
   CONSTRAINT `fk_idAlunos`
     FOREIGN KEY (`idAlunos`)
-    REFERENCES `RedBallon`.`alunos` (`idAlunos`)
+    REFERENCES `autentica-autoriza`.`alunos` (`idAlunos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -72,7 +71,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `RedBallon`.`mensalidade`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `RedBallon`.`mensalidade` (
+CREATE TABLE IF NOT EXISTS `autentica-autoriza`.`mensalidade` (
   `idmensalidade` INT NOT NULL,
   `valor` FLOAT NULL,
   `idAlunos` INT NULL,
@@ -80,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `RedBallon`.`mensalidade` (
   INDEX `fk_idAlunos_idx` (`idAlunos` ASC) VISIBLE,
   CONSTRAINT `fk_idAlunos`
     FOREIGN KEY (`idAlunos`)
-    REFERENCES `RedBallon`.`alunos` (`idAlunos`)
+    REFERENCES `autentica-autoriza`.`alunos` (`idAlunos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -89,7 +88,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `RedBallon`.`matricula`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `RedBallon`.`matricula` (
+CREATE TABLE IF NOT EXISTS `autentica-autoriza`.`matricula` (
   `idmatricula` INT NOT NULL,
   `idAlunos` INT NULL,
   `idmensalidade` INT NULL,
@@ -98,12 +97,12 @@ CREATE TABLE IF NOT EXISTS `RedBallon`.`matricula` (
   INDEX `fk_idMensalidade_idx` (`idmensalidade` ASC) VISIBLE,
   CONSTRAINT `fk_idAlunos`
     FOREIGN KEY (`idAlunos`)
-    REFERENCES `RedBallon`.`alunos` (`idAlunos`)
+    REFERENCES `autentica-autoriza`.`alunos` (`idAlunos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_idMensalidade`
     FOREIGN KEY (`idmensalidade`)
-    REFERENCES `RedBallon`.`mensalidade` (`idmensalidade`)
+    REFERENCES `autentica-autoriza`.`mensalidade` (`idmensalidade`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
