@@ -30,7 +30,7 @@ public class AlunosController {
         modelo.addAttribute("aluno", repository.buscaPorId(cod));
         return "alunos/dados";
     }
-
+    
 
     @PostMapping(value = "/alunos/dados")
     public String processaForm(Aluno aluno) {
