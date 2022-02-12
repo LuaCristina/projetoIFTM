@@ -47,7 +47,15 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>app-1.0-SNAPSHOT</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <addResources>true</addResources>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 </project>
