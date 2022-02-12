@@ -21,7 +21,7 @@ public class RedballoonApplication implements CommandLineRunner {
 
 		jdbcTemplate.execute("CREATE TABLE aluno(id SERIAL, nome VARCHAR(255), dataNascimento CHAR(8), anoEscola VARCHAR(10), escola VARCHAR(255), PRIMARY KEY (id))");
 
-		jdbcTemplate.update("INSERT INTO aluno(nome) VALUES (?,?,?,?,?)", "Marcos Paulo");
+//		jdbcTemplate.update("INSERT INTO aluno(nome) VALUES (?,?,?,?,?)", "Marcos Paulo");
 		/*
 		jdbcTemplate.update("INSERT INTO aluno(nome) VALUES (?)", "Laura Cristina");
 		jdbcTemplate.update("INSERT INTO aluno(nome) VALUES (?)", "Latifa");
