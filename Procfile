@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -Dspring.profiles.active=prod -jar target/app-1.0-SNAPSHOT.jar
+web: java -Dserver.port=$PORT -jar target/app-1.0-SNAPSHOT.jar
