@@ -16,10 +16,10 @@ public class AlunoRepository {
     JdbcTemplate jdbc;
 
     public List<Aluno> buscaTodos() {
-        String consulta = "SELECT * FROM ALUNOs;";
+        String consulta = "select * from alunos;";
         return jdbc.query(consulta,
             (resultados, numeroDaLinha) -> new Aluno(
-                resultados.getInt("idAlunos"),
+                resultados.getInt("id"),
                 resultados.getString("nome"),
                 resultados.getString("dataNascimento"),
                 resultados.getString("anoEscola"),
@@ -34,17 +34,17 @@ public class AlunoRepository {
     }
 
     public int excluir (Integer id){ 
-        String consulta = "delete from alunos where idAlunos = ?";
+        String consulta = "delete from alunos where id = ?";
         return jdbc.update(consulta, id);
     }
 
     public Aluno buscaPorId(Integer id) {
         try {
-            String query = "select * from alunos where idAlunos = ?";
+            String query = "select * from alunos where id = ?";
             return jdbc.queryForObject(query,
                 (resultados, rowNum) -> {
                     return new Aluno(
-                        resultados.getInt("idAlunos"),
+                        resultados.getInt("id"),
                         resultados.getString("nome"),
                         resultados.getString("dataNascimento"),
                         resultados.getString("anoEscola"),
@@ -58,7 +58,7 @@ public class AlunoRepository {
     }
 
     public int atualizar(Aluno aluno){
-        String consulta = "update alunos set nome = ? where idAlunos = ?";
+        String consulta = "update alunos set nome = ? where id = ?";
         return jdbc.update(consulta, aluno.getNome(), aluno.getId());
     }
 }

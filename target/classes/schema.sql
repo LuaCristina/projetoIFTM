@@ -1,10 +1,10 @@
 CREATE TABLE IF NOT EXISTS  `alunos` (
-  `idAlunos` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) DEFAULT NULL,
   `dataNascimento` char(11) DEFAULT NULL,
   `anoEscola` varchar(45) DEFAULT NULL,
   `escola` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`idAlunos`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS  `dados_med` (
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS  `dados_med` (
   `idAlunos` int DEFAULT NULL,
   PRIMARY KEY (`id_Hosp`),
   KEY `fk_dados_med_1_idx` (`idAlunos`),
-  CONSTRAINT `fk_idAlunos` FOREIGN KEY (`idAlunos`) REFERENCES `alunos` (`idAlunos`)
+  CONSTRAINT `fk_idAlunos` FOREIGN KEY (`idAlunos`) REFERENCES `alunos` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS  `mensalidade` (
   `idAlunos` int DEFAULT NULL,
   PRIMARY KEY (`idmensalidade`),
   KEY `idAlunos_idx` (`idAlunos`),
-  CONSTRAINT `idAlunos` FOREIGN KEY (`idAlunos`) REFERENCES `alunos` (`idAlunos`)
+  CONSTRAINT `idAlunos` FOREIGN KEY (`idAlunos`) REFERENCES `alunos` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS  `matricula` (
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS  `matricula` (
   PRIMARY KEY (`idmatricula`),
   KEY `fk_idAlunos_idx` (`idAlunos`),
   KEY `fk_idMensalidade_idx` (`idmensalidade`),
-  CONSTRAINT `fk_idAlunos2` FOREIGN KEY (`idAlunos`) REFERENCES `alunos` (`idAlunos`),
+  CONSTRAINT `fk_idAlunos2` FOREIGN KEY (`idAlunos`) REFERENCES `alunos` (`id`),
   CONSTRAINT `fk_idMensalidade` FOREIGN KEY (`idmensalidade`) REFERENCES `mensalidade` (`idmensalidade`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS  `responsavel` (
   `alunos_idAlunos` int NOT NULL,
   PRIMARY KEY (`id_Resp`),
   KEY `fk_responsavel_alunos1_idx` (`alunos_idAlunos`),
-  CONSTRAINT `fk_responsavel_alunos1` FOREIGN KEY (`alunos_idAlunos`) REFERENCES `alunos` (`idAlunos`)
+  CONSTRAINT `fk_responsavel_alunos1` FOREIGN KEY (`alunos_idAlunos`) REFERENCES `alunos` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --DROP TABLE responsavel;
