@@ -19,7 +19,7 @@ public class RedballoonApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		jdbcTemplate.execute("CREATE TABLE aluno(id SERIAL, nome VARCHAR(255), dataNascimento CHAR(8), anoEscola VARCHAR(10), escola VARCHAR(255), PRIMARY KEY (id))");
+		//jdbcTemplate.execute("CREATE TABLE aluno(id SERIAL, nome VARCHAR(255), dataNascimento CHAR(8), anoEscola VARCHAR(10), escola VARCHAR(255), PRIMARY KEY (id))");
 
 //		jdbcTemplate.update("INSERT INTO aluno(nome) VALUES (?,?,?,?,?)", "Marcos Paulo");
 		/*
