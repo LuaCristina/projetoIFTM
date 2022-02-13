@@ -40,7 +40,7 @@ public class AlunoRepository {
 
     public Aluno buscaPorId(Integer id) {
         try {
-            String query = "select * from aluno where id = ?";
+            String query = "select * from alunos where id = ?";
             return jdbc.queryForObject(query,
                 (resultados, rowNum) -> {
                     return new Aluno(
