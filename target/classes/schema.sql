@@ -1,15 +1,14 @@
 CREATE TABLE IF NOT EXISTS  `alunos` (
-  `idAlunos` int NOT NULL,
+  `idAlunos` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) DEFAULT NULL,
-  `cpf` char(11) DEFAULT NULL,
-  `escola` varchar(45) DEFAULT NULL,
-  `turma` varchar(10) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
+  `dataNascimento` char(11) DEFAULT NULL,
+  `anoEscola` varchar(45) DEFAULT NULL,
+  `escola` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`idAlunos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS  `dados_med` (
-  `id_Hosp` int NOT NULL,
+  `id_Hosp` int NOT NULL AUTO_INCREMENT,
   `medico` varchar(45) DEFAULT NULL,
   `hospital` varchar(45) DEFAULT NULL,
   `alergia` varchar(45) DEFAULT NULL,
@@ -21,7 +20,7 @@ CREATE TABLE IF NOT EXISTS  `dados_med` (
 
 
 CREATE TABLE IF NOT EXISTS  `mensalidade` (
-  `idmensalidade` int NOT NULL,
+  `idmensalidade` int NOT NULL AUTO_INCREMENT,
   `valor` float DEFAULT NULL,
   `idAlunos` int DEFAULT NULL,
   PRIMARY KEY (`idmensalidade`),
@@ -30,7 +29,7 @@ CREATE TABLE IF NOT EXISTS  `mensalidade` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS  `matricula` (
-  `idmatricula` int NOT NULL,
+  `idmatricula` int NOT NULL AUTO_INCREMENT,
   `idAlunos` int DEFAULT NULL,
   `idmensalidade` int DEFAULT NULL,
   PRIMARY KEY (`idmatricula`),
@@ -42,7 +41,7 @@ CREATE TABLE IF NOT EXISTS  `matricula` (
 
 
 CREATE TABLE IF NOT EXISTS  `responsavel` (
-  `id_Resp` int NOT NULL,
+  `id_Resp` int NOT NULL AUTO_INCREMENT,
   `cpf` char(11) DEFAULT NULL,
   `data_nasc` date DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -53,3 +52,9 @@ CREATE TABLE IF NOT EXISTS  `responsavel` (
   KEY `fk_responsavel_alunos1_idx` (`alunos_idAlunos`),
   CONSTRAINT `fk_responsavel_alunos1` FOREIGN KEY (`alunos_idAlunos`) REFERENCES `alunos` (`idAlunos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--DROP TABLE responsavel;
+--DROP TABLE matricula;
+--DROP TABLE mensalidade;
+--DROP TABLE dados_med;
+--DROP TABLE alunos;

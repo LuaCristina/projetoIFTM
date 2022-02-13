@@ -16,10 +16,10 @@ public class AlunoRepository {
     JdbcTemplate jdbc;
 
     public List<Aluno> buscaTodos() {
-        String consulta = "SELECT * FROM ALUNO;";
+        String consulta = "SELECT * FROM ALUNOs;";
         return jdbc.query(consulta,
             (resultados, numeroDaLinha) -> new Aluno(
-                resultados.getInt("id"),
+                resultados.getInt("idAlunos"),
                 resultados.getString("nome"),
                 resultados.getString("dataNascimento"),
                 resultados.getString("anoEscola"),
@@ -29,22 +29,22 @@ public class AlunoRepository {
     }
 
     public int salvar(Aluno aluno){
-        String consulta = "insert into aluno(nome, dataNascimento, anoEscola, escola) values(?,?,?,?)";
+        String consulta = "insert into alunos (nome, dataNascimento, anoEscola, escola) values(?,?,?,?)";
         return jdbc.update(consulta, aluno.getNome(), aluno.getDataNascimento(), aluno.getAnoEscola(), aluno.getEscola() );
     }
 
     public int excluir (Integer id){ 
-        String consulta = "delete from aluno where id = ?";
+        String consulta = "delete from alunos where idAlunos = ?";
         return jdbc.update(consulta, id);
     }
 
     public Aluno buscaPorId(Integer id) {
         try {
-            String query = "select * from alunos where id = ?";
+            String query = "select * from alunos where idAlunos = ?";
             return jdbc.queryForObject(query,
                 (resultados, rowNum) -> {
                     return new Aluno(
-                        resultados.getInt("id"),
+                        resultados.getInt("idAlunos"),
                         resultados.getString("nome"),
                         resultados.getString("dataNascimento"),
                         resultados.getString("anoEscola"),
@@ -58,7 +58,7 @@ public class AlunoRepository {
     }
 
     public int atualizar(Aluno aluno){
-        String consulta = "update aluno set nome = ? where id = ?";
+        String consulta = "update alunos set nome = ? where idAlunos = ?";
         return jdbc.update(consulta, aluno.getNome(), aluno.getId());
     }
 }
